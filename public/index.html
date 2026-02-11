@@ -1,1 +1,606 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum Portfolio Simulator</title>
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { 
+            --primary: #2c3e50; 
+            --bg-body: #f4f7f6;
+            --bg-card: white;
+            --text-main: #000000; /* Force Pure Black */
+            --accent: #2980b9;
+            --secondary: #7f8c8d;
+        }
+        body.dark-mode {
+            --bg-body: #0d1117;
+            --bg-card: #161b22;
+            --text-main: #ffffff; /* Brighter for dark mode */
+            color: #ffffff;
+        }
+        body { 
+            padding: 0; margin: 0; 
+            background-color: var(--bg-body); 
+            color: var(--text-main) !important;
+            transition: background 0.3s; 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; 
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+        }
+        
+        /* Apply text color to all common elements */
+        p, label, h1, h2, h3, h4, h5, table, th, td, span, strong {
+            color: var(--text-main) !important;
+        }
+
+        .container-fluid { 
+            padding: 10px 20px; 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Layout Layout */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr; /* Slimmed from 320px */
+            gap: 20px;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 10px; 
+            flex-shrink: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+        }
+        .logo-area h1 { margin: 0; font-size: 1.8rem; letter-spacing: -0.5px; font-weight: 800; }
+        .header-controls { display: flex; gap: 10px; align-items: center; }
+        
+        /* Sidebar / Simulator Panel */
+        .sidebar {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            overflow-y: hidden;
+            width: 250px;
+            flex-shrink: 0;
+        }
+        .sidebar h4 { margin-bottom: 10px; font-size: 1.1rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+        
+        .input-group { margin-bottom: 8px; }
+        .input-group label { font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; display: block; }
+        .input-group input, .input-group select { font-size: 0.8rem; padding: 4px 8px; }
+        
+        .cashflow-list {
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 6px;
+            max-height: 120px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .cashflow-item { padding: 5px 10px; font-size: 0.75rem; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; }
+        
+        /* Main Dashboard */
+        .main-view {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Tabs - Stacked on the right of chart */
+        .nav-tabs { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; width: 120px; }
+        .nav-tab { 
+            padding: 6px 10px; border: 1px solid rgba(0,0,0,0.1); 
+            background: var(--bg-card); cursor: pointer; font-weight: 600; font-size: 0.7rem;
+            transition: all 0.2s; text-align: center; border-radius: 6px;
+        }
+        .nav-tab.active { background: var(--accent); color: white !important; border-color: var(--accent); }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-rows: 1.2fr 1fr;
+            gap: 20px;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .top-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .card-container {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Chart */
+        .chart-wrapper { flex-grow: 1; position: relative; min-height: 200px; }
+        
+        /* Tables */
+        .table-scroll { flex-grow: 1; overflow-y: auto; border: 1px solid #eee; border-radius: 6px; }
+        table { width: 100%; font-size: 0.8rem; margin-bottom: 0; }
+        th { position: sticky; top: 0; background: var(--bg-card); padding: 8px; z-index: 5; font-weight: 700; border-bottom: 2px solid #eee; }
+        td { padding: 6px 8px; border-bottom: 1px solid #f9f9f9; }
+
+        /* Action Plan */
+        .action-banner {
+            padding: 10px; border-radius: 8px; margin-bottom: 15px;
+            font-size: 0.85rem; border-left: 5px solid var(--accent);
+            background: rgba(52, 152, 219, 0.05);
+        }
+        .action-banner.rebalance { border-left-color: #e67e22; background: rgba(230, 126, 34, 0.05); }
+
+        /* Theme Toggle */
+        .btn-icon { background: transparent; border: 1px solid var(--text-main); color: var(--text-main); padding: 4px 8px; cursor: pointer; border-radius: 4px; }
+        
+        /* Simulation Results Overlay */
+        .sim-results { 
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; 
+            margin-bottom: 15px; padding: 10px; background: rgba(0,0,0,0.02); border-radius: 8px;
+        }
+        .sim-stat { text-align: center; }
+        .sim-stat-val { display: block; font-weight: 800; font-size: 1.1rem; }
+        .sim-stat-lbl { font-size: 0.65rem; opacity: 0.6; text-transform: uppercase; }
+
+        .text-green { color: #1e8449 !important; font-weight: bold; }
+        .text-red { color: #a93226 !important; font-weight: bold; }
+        .badge { padding: 2px 5px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; color: white !important; }
+        .bg-green { background-color: #1e8449; }
+        .bg-orange { background-color: #d35400; }
+    </style>
+</head>
+<body onload="initApp()">
+    <div class="container-fluid">
+        <div class="header">
+            <div class="logo-area">
+                <h1>🚀 Momentum Simulator</h1>
+            </div>
+            <div class="header-controls">
+                <button onclick="toggleTheme()" class="btn-icon">🌗</button>
+            </div>
+        </div>
+
+        <div class="layout-grid">
+            <!-- Sidebar: Simulator Controls -->
+            <aside class="sidebar">
+                <h4 style="margin-bottom: 2px; font-size: 1rem;">⏱️ Time Machine</h4>
+                
+                <div class="input-group">
+                    <label>Initial Capital ($/₪)</label>
+                    <input type="number" id="sim-capital" value="100000" onchange="runSim()">
+                </div>
+                
+                <div class="input-group">
+                    <label>Start Date</label>
+                    <input type="date" id="sim-start" onchange="runSim()">
+                </div>
+
+                <div style="margin-top: 5px;">
+                    <button id="run-btn" onclick="runSim()" class="contrast" style="width: 100%; margin-bottom: 0;">🚀 Recalculate</button>
+                    <p style="font-size: 0.65rem; opacity: 0.6; text-align: center; margin-top: 2px;">
+                        Recalculates the strategy with your custom parameters.
+                    </p>
+                </div>
+
+
+
+                <div id="custom-cashflows" style="display:none;">
+                    <label style="font-size: 0.8rem; font-weight: 600;">Manual Cashflows</label>
+                    <div class="cashflow-list" id="cashflow-items"></div>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="date" id="cf-date" style="font-size: 0.8rem;">
+                        <input type="number" id="cf-amt" placeholder="Amt" style="font-size: 0.8rem; width: 60px;">
+                        <button onclick="addCashflow()" style="padding: 2px 8px;">+</button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 5px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px;">
+                    <div id="action-area"></div>
+                    
+                    <h5 style="font-size: 0.8rem; margin-bottom: 5px;">💸 Friction</h5>
+                    <div style="padding: 8px; border: 1px dashed var(--accent); border-radius: 8px; background: rgba(0,0,0,0.02);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 2px; font-size: 0.7rem;">
+                            <span>Comm:</span>
+                            <span id="friction-comm" style="font-weight: bold;">-</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 2px; font-size: 0.7rem;">
+                            <span>Tax:</span>
+                            <span id="friction-tax" style="font-weight: bold;">-</span>
+                        </div>
+                        <hr style="margin: 4px 0; opacity: 0.2;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+                            <strong>Total:</strong>
+                            <strong id="friction-total" class="text-red">-</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+            <!-- Main View -->
+            <main class="main-view">
+                <div class="dashboard-grid">
+                    <!-- Top: Performance & Growth -->
+                    <div class="top-row">
+                        <div class="card-container" style="padding: 10px;">
+                            <div class="sim-results" id="output-stats" style="margin-bottom: 5px;">
+                                <!-- Dynamic Stats -->
+                            </div>
+                            <div style="display: flex; flex-grow: 1; overflow: hidden; gap: 0;">
+                                <div class="chart-wrapper">
+                                    <canvas id="mainChart"></canvas>
+                                </div>
+                                <nav class="nav-tabs" id="nav-tabs"></nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom: Health & Target Weights -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; overflow: hidden;">
+                        <div class="card-container">
+                            <h5>💼 Current Strategy Health</h5>
+                            <div class="table-scroll">
+                                <table id="health-table">
+                                    <thead><tr><th>Ticker</th><th>Rank</th><th>Status</th></tr></thead>
+                                    <tbody id="health-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="card-container">
+                            <h5>🎯 Target Allocation</h5>
+                            <div class="table-scroll">
+                                <table id="target-table">
+                                    <thead><tr><th>Ticker</th><th>%</th><th>Price</th><th>Units</th></tr></thead>
+                                    <tbody id="target-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const stats = [{"id": "ta125", "market_id": "3", "name": "Tel Aviv (TA-125)", "top_n": 11, "last_rebalance": "2025-11-02", "final_value": 0.0, "total_return": 0.0, "return_since_rebalance": 0.0, "chart_data": {"labels": [], "datasets": []}, "target_holdings": [{"Ticker": "TSEM.TA", "Momentum_Score": 4.056128465414583, "Weight": 0.0909090909090909, "Close": 433.1}, {"Ticker": "MSKE.TA", "Momentum_Score": 3.5467604386071585, "Weight": 0.0909090909090909, "Close": 10.7}, {"Ticker": "OPCE.TA", "Momentum_Score": 3.5455614211666666, "Weight": 0.0909090909090909, "Close": 88.0}, {"Ticker": "DORL.TA", "Momentum_Score": 3.538119212294975, "Weight": 0.0909090909090909, "Close": 50.59}, {"Ticker": "ENLT.TA", "Momentum_Score": 3.448617727405031, "Weight": 0.0909090909090909, "Close": 190.0}, {"Ticker": "MMHD.TA", "Momentum_Score": 2.9528548827377064, "Weight": 0.0909090909090909, "Close": 481.0}, {"Ticker": "NXSN.TA", "Momentum_Score": 2.859119769077811, "Weight": 0.0909090909090909, "Close": 302.4}, {"Ticker": "MGDL.TA", "Momentum_Score": 2.695651922067006, "Weight": 0.0909090909090909, "Close": 18.51}, {"Ticker": "PHOE.TA", "Momentum_Score": 2.614316602562388, "Weight": 0.0909090909090909, "Close": 167.7}, {"Ticker": "TASE.TA", "Momentum_Score": 2.2306329813066923, "Weight": 0.0909090909090909, "Close": 127.2}, {"Ticker": "HARL.TA", "Momentum_Score": 2.197846253913263, "Weight": 0.0909090909090909, "Close": 166.4}], "current_holdings": [{"Date": "2025-11-02 00:00:00", "Ticker": "CASH", "Shares": 1, "Price": NaN, "Value": 19.39212238339337, "Weight": 9.628451952984798e-05}, {"Date": "2025-11-02 00:00:00", "Ticker": "TASE.TA", "Shares": 782, "Price": 77.0, "Value": 18503.017050955936, "Weight": 0.0918699908850373}, {"Date": "2025-11-02 00:00:00", "Ticker": "HARL.TA", "Shares": 528, "Price": 114.0, "Value": 18496.25672320623, "Weight": 0.0918364249402492}, {"Date": "2025-11-02 00:00:00", "Ticker": "PHOE.TA", "Shares": 478, "Price": 125.98814453125, "Value": 18505.57770514248, "Weight": 0.0918827048806051}, {"Date": "2025-11-02 00:00:00", "Ticker": "CLIS.TA", "Shares": 330, "Price": 182.0, "Value": 18455.69475670797, "Weight": 0.0916350292715205}, {"Date": "2025-11-02 00:00:00", "Ticker": "MMHD.TA", "Shares": 186, "Price": 323.1, "Value": 18466.941483782488, "Weight": 0.0916908707978499}, {"Date": "2025-11-02 00:00:00", "Ticker": "POLI.TA", "Shares": 862, "Price": 66.0921142578125, "Value": 17506.606963391903, "Weight": 0.0869226795676358}, {"Date": "2025-11-02 00:00:00", "Ticker": "LUMI.TA", "Shares": 888, "Price": 65.7501318359375, "Value": 17941.331246738326, "Weight": 0.0890811446351733}, {"Date": "2025-11-02 00:00:00", "Ticker": "NXSN.TA", "Shares": 398, "Price": 151.0, "Value": 18467.371686457467, "Weight": 0.0916930068125182}, {"Date": "2025-11-02 00:00:00", "Ticker": "MGDL.TA", "Shares": 5074, "Price": 11.87, "Value": 18507.43584700325, "Weight": 0.0918919308071306}, {"Date": "2025-11-02 00:00:00", "Ticker": "ESLT.TA", "Shares": 38, "Price": 1559.8934375, "Value": 18214.76608639182, "Weight": 0.0904387857245934}, {"Date": "2025-11-02 00:00:00", "Ticker": "OPCE.TA", "Shares": 1003, "Price": 59.44, "Value": 18319.971958503796, "Weight": 0.0909611471581565}], "report": {"date_analyzed": "2026-02-28", "decision": "FULL REBALANCE", "reason": "Market shifted significantly (+54.0% potential vs 9.5% friction).", "current_avg_score": 2.36, "ideal_avg_score": 3.64, "improvement_potential": "54.0%", "friction_cost_pct": "9.52%", "friction_usd": 9523.73, "commissions_usd": 90.0, "tax_usd": 9433.73, "trade_diagnostics": [{"ticker": "HARL.TA", "price": 166.4, "side": "sell"}, {"ticker": "PHOE.TA", "price": 167.7, "side": "sell"}, {"ticker": "CLIS.TA", "price": 249.0, "side": "sell"}, {"ticker": "MMHD.TA", "price": 481.0, "side": "sell"}, {"ticker": "POLI.TA", "price": 82.8, "side": "sell"}, {"ticker": "LUMI.TA", "price": 79.93, "side": "sell"}, {"ticker": "MGDL.TA", "price": 18.51, "side": "sell"}, {"ticker": "ESLT.TA", "price": 2117.7, "side": "sell"}, {"ticker": "ENLT.TA", "price": 190.0, "side": "buy"}, {"ticker": "TSEM.TA", "price": 433.1, "side": "buy"}, {"ticker": "DORL.TA", "price": 50.59, "side": "buy"}, {"ticker": "MSKE.TA", "price": 10.7, "side": "buy"}, {"ticker": "GILT.TA", "price": 47.0, "side": "buy"}, {"ticker": "MGOR.TA", "price": 409.0, "side": "buy"}, {"ticker": "MTAV.TA", "price": 137.2, "side": "buy"}], "detailed_status": [{"ticker": "TASE.TA", "rank": 6, "score": 3.46, "action": "KEEP (Rank 6)"}, {"ticker": "HARL.TA", "rank": 24, "score": 1.99, "action": "SELL (Not in Top 10)"}, {"ticker": "PHOE.TA", "rank": 17, "score": 2.19, "action": "SELL (Not in Top 10)"}, {"ticker": "CLIS.TA", "rank": 25, "score": 1.91, "action": "SELL (Not in Top 10)"}, {"ticker": "MMHD.TA", "rank": 21, "score": 2.01, "action": "SELL (Not in Top 10)"}, {"ticker": "POLI.TA", "rank": 32, "score": 1.56, "action": "SELL (Not in Top 10)"}, {"ticker": "LUMI.TA", "rank": 36, "score": 1.42, "action": "SELL (Not in Top 10)"}, {"ticker": "NXSN.TA", "rank": 5, "score": 3.69, "action": "KEEP (Rank 5)"}, {"ticker": "MGDL.TA", "rank": 15, "score": 2.25, "action": "SELL (Not in Top 10)"}, {"ticker": "ESLT.TA", "rank": 14, "score": 2.3, "action": "SELL (Not in Top 10)"}, {"ticker": "OPCE.TA", "rank": 9, "score": 3.21, "action": "KEEP (Rank 9)"}], "trades": {"sell": ["HARL.TA", "PHOE.TA", "CLIS.TA", "MMHD.TA", "POLI.TA", "LUMI.TA", "MGDL.TA", "ESLT.TA"], "buy": ["ENLT.TA", "TSEM.TA", "DORL.TA", "MSKE.TA", "GILT.TA", "MGOR.TA", "MTAV.TA"]}}, "returns_data": {}, "file_suffix": "ta125"}];
+        const COMM_CONFIG = {
+            per_share: 0.0035,
+            min_fee: 0.35,
+            max_pct: 0.01,
+            sec_rate: 2.78e-05,
+            finra_rate: 0.000166,
+            finra_max: 8.3,
+            psagot_pct: 0.0006,
+            psagot_min: 2.0
+        };
+        let activeMarket = stats[0];
+        let priceData = {}; // Cache for daily returns JSON
+        let chartInstance = null;
+        let manualCashflows = [];
+
+        async function initApp() {
+            renderTabs();
+            
+            // Set initial dates
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('sim-start').value = '2023-01-01'; // Default
+            
+            if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+            
+            switchMarket(stats[0].id);
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            runSim(); // Refresh chart with new theme colors
+        }
+
+        function renderTabs() {
+            const nav = document.getElementById('nav-tabs');
+            nav.innerHTML = stats.map(s => `
+                <div id="tab-${s.id}" class="nav-tab ${s.id === activeMarket.id ? 'active' : ''}" 
+                     onclick="switchMarket('${s.id}')">
+                    ${s.name}
+                </div>
+            `).join('');
+        }
+
+        async function switchMarket(id) {
+            activeMarket = stats.find(s => s.id === id);
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(`tab-${id}`).classList.add('active');
+            
+            // Use inlined data
+            if (!priceData[id]) {
+                if (activeMarket.returns_data && activeMarket.returns_data.dates) {
+                    priceData[id] = activeMarket.returns_data;
+                    
+                    // Update start date to first available
+                    if (priceData[id].dates.length > 0) {
+                        const firstDate = priceData[id].dates[0];
+                        if (document.getElementById('sim-start').value < firstDate) {
+                            document.getElementById('sim-start').value = firstDate;
+                        }
+                    }
+                } else {
+                    alert("Could not load simulation data for " + activeMarket.name);
+                }
+            }
+            
+            // Update UI components
+            renderActionPlan();
+            renderTables();
+            renderFriction();
+            runSim();
+        }
+
+        function renderActionPlan() {
+            const area = document.getElementById('action-area');
+            const decision = activeMarket.report.decision || 'HOLD';
+            const isRebalance = decision.includes('REBALANCE');
+            
+            area.innerHTML = `
+                <div class="action-banner ${isRebalance ? 'rebalance' : ''}">
+                    <strong style="font-size: 1.1rem;">
+                        <span class="badge ${isRebalance ? 'bg-orange' : 'bg-green'}">${decision}</span> Plan
+                    </strong>
+                    <p style="margin: 5px 0 0 0;">${activeMarket.report.reason || 'Wait for next signal.'}</p>
+                </div>
+            `;
+        }
+
+        function renderTables() {
+            const targetBody = document.getElementById('target-body');
+            const cap = parseFloat(document.getElementById('sim-capital').value) || 100000;
+            
+            targetBody.innerHTML = activeMarket.target_holdings.map(t => {
+                const units = Math.floor((cap * t.Weight) / (t.Close || 1));
+                return `
+                    <tr>
+                        <td><strong>${t.Ticker}</strong></td>
+                        <td>${(t.Weight*100).toFixed(1)}%</td>
+                        <td>${t.Close ? '$'+t.Close.toFixed(2) : '-'}</td>
+                        <td class="text-green">${units || '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            const healthBody = document.getElementById('health-body');
+            healthBody.innerHTML = (activeMarket.report.detailed_status || []).map(h => `
+                <tr>
+                    <td>${h.ticker}</td>
+                    <td>${h.rank}</td>
+                    <td><span class="badge ${h.action.includes('SELL') ? 'bg-orange' : 'bg-green'}">${h.action}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function renderFriction() {
+            const r = activeMarket.report;
+            const cap = parseFloat(document.getElementById('sim-capital').value) || 100000;
+            const sym = activeMarket.id === 'ta125' ? '₪' : '$';
+            const trades = r.trade_diagnostics || [];
+            
+            let totalComm = 0;
+            let totalReg = 0;
+            // Assume trade size is total capital divided by target slots
+            const tradeSize = cap / (activeMarket.top_n || 10);
+            
+            if (activeMarket.id === 'ta125') {
+                // Psagot Style (Simple % + Min)
+                trades.forEach(t => {
+                    let comm = (tradeSize * COMM_CONFIG.psagot_pct);
+                    totalComm += Math.max(comm, COMM_CONFIG.psagot_min);
+                });
+            } else {
+                // IBKR Pro Tiered Logic
+                trades.forEach(t => {
+                    const shares = Math.max(1, tradeSize / t.price);
+                    const val = shares * t.price;
+                    
+                    // Base Commission
+                    let comm = Math.max(shares * COMM_CONFIG.per_share, COMM_CONFIG.min_fee);
+                    comm = Math.min(comm, val * COMM_CONFIG.max_pct);
+                    totalComm += comm;
+                    
+                    // Regulatory Fees (Sell Only)
+                    if (t.side === 'sell') {
+                        totalReg += val * COMM_CONFIG.sec_rate;
+                        totalReg += Math.min(shares * COMM_CONFIG.finra_rate, COMM_CONFIG.finra_max);
+                    }
+                });
+            }
+            
+            // Tax: Scales linearly with capital
+            const ratio = cap / 100000.0;
+            const tax = (r.tax_usd || 0) * ratio;
+
+            document.getElementById('friction-comm').textContent = sym + (totalComm + totalReg).toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('friction-tax').textContent = sym + tax.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('friction-total').textContent = sym + (totalComm + totalReg + tax).toLocaleString(undefined, {maximumFractionDigits: 0});
+        }
+
+        function addCashflow() {
+            const date = document.getElementById('cf-date').value;
+            const amt = parseFloat(document.getElementById('cf-amt').value);
+            if (!date || isNaN(amt)) return;
+            
+            manualCashflows.push({ date, amount: amt });
+            renderCashflows();
+            runSim();
+        }
+
+        function renderCashflows() {
+            const div = document.getElementById('cashflow-items');
+            document.getElementById('custom-cashflows').style.display = 'block';
+            div.innerHTML = manualCashflows.sort((a,b) => a.date.localeCompare(b.date)).map((cf, i) => `
+                <div class="cashflow-item">
+                    <span>${cf.date}</span>
+                    <strong>${cf.amount > 0 ? '+' : ''}${cf.amount}</strong>
+                    <span style="cursor:pointer; color:red;" onclick="removeCf(${i})">×</span>
+                </div>
+            `).join('');
+        }
+
+        function removeCf(i) {
+            manualCashflows.splice(i, 1);
+            renderCashflows();
+            runSim();
+        }
+
+        function runSim() {
+            if (!priceData[activeMarket.id]) return;
+            
+            const startDate = document.getElementById('sim-start').value;
+            const initialCapital = parseFloat(document.getElementById('sim-capital').value) || 100000;
+
+
+            const data = priceData[activeMarket.id];
+            const startIdx = data.dates.findIndex(d => d >= startDate);
+            if (startIdx === -1) return;
+
+            const simDates = data.dates.slice(startIdx);
+            const datasets = [];
+            
+            // Keys to simulate (Strategy + Benchmarks)
+            const keys = Object.keys(data).filter(k => k !== 'dates');
+            
+            keys.forEach(key => {
+                let currentVal = initialCapital;
+                const curve = [];
+                const dailyReturns = data[key].slice(startIdx);
+                
+                let lastMonth = -1;
+                
+                simDates.forEach((dateStr, i) => {
+                    // 1. Apply Return
+                    currentVal *= (1 + dailyReturns[i]);
+                    
+
+                    
+                    // 3. Apply Manual Cashflows
+                    manualCashflows.forEach(cf => {
+                        if (cf.date === dateStr) currentVal += cf.amount;
+                    });
+                    
+                    curve.push(parseFloat(currentVal.toFixed(2)));
+                });
+                
+                datasets.push({
+                    label: key,
+                    data: curve,
+                    borderColor: key === 'strategy' ? '#3498db' : getRandomColor(key),
+                    borderWidth: key === 'strategy' ? 3 : 1.5,
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0.1
+                });
+            });
+
+            updateChart(simDates, datasets);
+            updateSimStats(datasets[0].data); // Strategy is first
+            renderTables(); // Update units when capital changes
+            renderFriction(); // Update friction costs when capital changes
+        }
+        
+        const colors = ['#e74c3c', '#9b59b6', '#f1c40f', '#2ecc71', '#1abc9c', '#e67e22'];
+        let colorMap = {};
+        function getRandomColor(seed) {
+            if (colorMap[seed]) return colorMap[seed];
+            const c = colors[Object.keys(colorMap).length % colors.length];
+            colorMap[seed] = c;
+            return c;
+        }
+
+        function updateChart(labels, datasets) {
+            const ctx = document.getElementById('mainChart').getContext('2d');
+            if (chartInstance) chartInstance.destroy();
+            
+            const isDark = document.body.classList.contains('dark-mode');
+            const textColor = isDark ? '#ffffff' : '#000000';
+            const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)';
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: { 
+                        legend: { 
+                            position: 'top', 
+                            labels: { boxWidth: 12, font: { size: 10 }, color: textColor } 
+                        }
+                    },
+                    scales: {
+                        x: { 
+                            ticks: { color: textColor, maxRotation: 0, autoSkip: true, maxTicksLimit: 10 },
+                            grid: { color: gridColor }
+                        },
+                        y: { 
+                            ticks: { color: textColor }, 
+                            grid: { color: gridColor },
+                            beginAtZero: false 
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateSimStats(curve) {
+            const startVal = curve[0];
+            const endVal = curve[curve.length - 1];
+            const totalReturn = ((endVal - startVal) / startVal) * 100;
+            
+            const statsDiv = document.getElementById('output-stats');
+            statsDiv.innerHTML = `
+                <div class="sim-stat">
+                    <span class="sim-stat-val ${totalReturn >= 0 ? 'text-green' : 'text-red'}">${totalReturn.toFixed(1)}%</span>
+                    <span class="sim-stat-lbl">Return</span>
+                </div>
+                <div class="sim-stat">
+                    <span class="sim-stat-val">${new Intl.NumberFormat().format(endVal.toFixed(0))}</span>
+                    <span class="sim-stat-lbl">Final Value</span>
+                </div>
+                <div class="sim-stat">
+                    <span class="sim-stat-val">${activeMarket.last_rebalance}</span>
+                    <span class="sim-stat-lbl">Last Rebalance</span>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
+    
