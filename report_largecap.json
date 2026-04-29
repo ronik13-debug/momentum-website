@@ -1,5 +1,5 @@
 {
-    "date_analyzed": "2026-04-27",
+    "date_analyzed": "2026-04-28",
     "decision": "PARTIAL REBALANCE",
     "reason": "Detected 4 broken stocks (Rank > 20).",
     "exposure_pct": 100.0,
@@ -14,57 +14,57 @@
     "trade_diagnostics": [
         {
             "ticker": "WBD",
-            "price": 26.82,
+            "price": 26.95,
             "side": "sell"
         },
         {
             "ticker": "NEM",
-            "price": 116.08,
+            "price": 109.9,
             "side": "sell"
         },
         {
             "ticker": "CAH",
-            "price": 202.34,
+            "price": 205.61,
             "side": "sell"
         },
         {
             "ticker": "JNJ",
-            "price": 225.34,
+            "price": 227.79,
             "side": "sell"
         },
         {
             "ticker": "ASML",
-            "price": 1432.44,
+            "price": 1384.56,
             "side": "sell"
         },
         {
             "ticker": "MU",
-            "price": 524.56,
+            "price": 504.29,
             "side": "buy"
         },
         {
             "ticker": "COHR",
-            "price": 321.53,
+            "price": 303.97,
             "side": "buy"
         },
         {
             "ticker": "ALB",
-            "price": 199.53,
+            "price": 186.9,
             "side": "buy"
         },
         {
             "ticker": "CAT",
-            "price": 828.79,
+            "price": 817.87,
             "side": "buy"
         },
         {
             "ticker": "GEV",
-            "price": 1120.23,
+            "price": 1088.93,
             "side": "buy"
         },
         {
             "ticker": "ROST",
-            "price": 226.17,
+            "price": 225.52,
             "side": "buy"
         }
     ],
@@ -130,16 +130,16 @@
             "action": "KEEP (Rank 17)"
         },
         {
-            "ticker": "ASML",
-            "rank": 37,
-            "score": 2.28,
-            "action": "SELL (Rank 37 > 20)"
-        },
-        {
             "ticker": "CIEN",
             "rank": 2,
             "score": 6.0,
             "action": "KEEP (Rank 2)"
+        },
+        {
+            "ticker": "ASML",
+            "rank": 37,
+            "score": 2.28,
+            "action": "SELL (Rank 37 > 20)"
         },
         {
             "ticker": "FIX",
