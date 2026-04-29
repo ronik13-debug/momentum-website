@@ -82,10 +82,10 @@
             "action": "KEEP (Rank 8)"
         },
         {
-            "ticker": "TER",
-            "rank": 7,
-            "score": 3.99,
-            "action": "KEEP (Rank 7)"
+            "ticker": "LRCX",
+            "rank": 13,
+            "score": 3.05,
+            "action": "KEEP (Rank 13)"
         },
         {
             "ticker": "WBD",
@@ -94,10 +94,10 @@
             "action": "SELL (Rank 45 > 20)"
         },
         {
-            "ticker": "LRCX",
-            "rank": 13,
-            "score": 3.05,
-            "action": "KEEP (Rank 13)"
+            "ticker": "TER",
+            "rank": 7,
+            "score": 3.99,
+            "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "SNDK",
@@ -130,16 +130,16 @@
             "action": "KEEP (Rank 17)"
         },
         {
-            "ticker": "ASML",
-            "rank": 37,
-            "score": 2.28,
-            "action": "SELL (Rank 37 > 20)"
-        },
-        {
             "ticker": "CIEN",
             "rank": 2,
             "score": 6.0,
             "action": "KEEP (Rank 2)"
+        },
+        {
+            "ticker": "ASML",
+            "rank": 37,
+            "score": 2.28,
+            "action": "SELL (Rank 37 > 20)"
         },
         {
             "ticker": "LITE",
