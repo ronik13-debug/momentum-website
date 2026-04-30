@@ -1,5 +1,5 @@
 {
-    "date_analyzed": "2026-04-28",
+    "date_analyzed": "2026-04-29",
     "decision": "PARTIAL REBALANCE",
     "reason": "Detected 4 broken stocks (Rank > 20).",
     "exposure_pct": 100.0,
@@ -14,57 +14,57 @@
     "trade_diagnostics": [
         {
             "ticker": "WBD",
-            "price": 26.95,
+            "price": 27.05,
             "side": "sell"
         },
         {
             "ticker": "NEM",
-            "price": 109.9,
+            "price": 107.61,
             "side": "sell"
         },
         {
             "ticker": "CAH",
-            "price": 205.61,
+            "price": 202.82,
             "side": "sell"
         },
         {
             "ticker": "JNJ",
-            "price": 227.79,
+            "price": 227.35,
             "side": "sell"
         },
         {
             "ticker": "ASML",
-            "price": 1384.56,
+            "price": 1394.08,
             "side": "sell"
         },
         {
             "ticker": "MU",
-            "price": 504.29,
+            "price": 518.46,
             "side": "buy"
         },
         {
             "ticker": "COHR",
-            "price": 303.97,
+            "price": 304.93,
             "side": "buy"
         },
         {
             "ticker": "ALB",
-            "price": 186.9,
+            "price": 190.88,
             "side": "buy"
         },
         {
             "ticker": "CAT",
-            "price": 817.87,
+            "price": 810.05,
             "side": "buy"
         },
         {
             "ticker": "GEV",
-            "price": 1088.93,
+            "price": 1063.11,
             "side": "buy"
         },
         {
             "ticker": "ROST",
-            "price": 225.52,
+            "price": 225.08,
             "side": "buy"
         }
     ],
@@ -82,10 +82,10 @@
             "action": "KEEP (Rank 8)"
         },
         {
-            "ticker": "LRCX",
-            "rank": 13,
-            "score": 3.05,
-            "action": "KEEP (Rank 13)"
+            "ticker": "TER",
+            "rank": 7,
+            "score": 3.99,
+            "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "WBD",
@@ -94,10 +94,10 @@
             "action": "SELL (Rank 45 > 20)"
         },
         {
-            "ticker": "TER",
-            "rank": 7,
-            "score": 3.99,
-            "action": "KEEP (Rank 7)"
+            "ticker": "LRCX",
+            "rank": 13,
+            "score": 3.05,
+            "action": "KEEP (Rank 13)"
         },
         {
             "ticker": "SNDK",
