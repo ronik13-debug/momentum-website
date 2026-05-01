@@ -1,70 +1,45 @@
 {
-    "date_analyzed": "2026-04-29",
+    "date_analyzed": "2026-05-01",
     "decision": "PARTIAL REBALANCE",
-    "reason": "Detected 4 broken stocks (Rank > 20).",
+    "reason": "Detected 1 broken stocks (Rank > 20).",
     "exposure_pct": 100.0,
-    "current_avg_score": 3.94,
-    "ideal_avg_score": 4.16,
-    "improvement_potential": "5.6%",
+    "current_avg_score": 4.04,
+    "ideal_avg_score": 4.17,
+    "improvement_potential": "3.0%",
     "friction_cost_pct": "0.00%",
-    "total_friction": 0.99,
-    "commissions": 0.99,
+    "total_friction": 0.57,
+    "commissions": 0.57,
     "tax": 0,
     "currency": "USD",
     "trade_diagnostics": [
         {
-            "ticker": "WBD",
-            "price": 27.05,
-            "side": "sell"
-        },
-        {
-            "ticker": "NEM",
-            "price": 107.61,
-            "side": "sell"
-        },
-        {
-            "ticker": "CAH",
-            "price": 202.82,
+            "ticker": "LRCX",
+            "price": 257.86,
             "side": "sell"
         },
         {
             "ticker": "JNJ",
-            "price": 227.35,
+            "price": 229.85,
             "side": "sell"
-        },
-        {
-            "ticker": "ASML",
-            "price": 1394.08,
-            "side": "sell"
-        },
-        {
-            "ticker": "MU",
-            "price": 518.46,
-            "side": "buy"
-        },
-        {
-            "ticker": "COHR",
-            "price": 304.93,
-            "side": "buy"
         },
         {
             "ticker": "ALB",
-            "price": 190.88,
+            "price": 196.7,
+            "side": "sell"
+        },
+        {
+            "ticker": "INTC",
+            "price": 94.48,
             "side": "buy"
         },
         {
-            "ticker": "CAT",
-            "price": 810.05,
+            "ticker": "CMI",
+            "price": 671.01,
             "side": "buy"
         },
         {
-            "ticker": "GEV",
-            "price": 1063.11,
-            "side": "buy"
-        },
-        {
-            "ticker": "ROST",
-            "price": 225.08,
+            "ticker": "KEYS",
+            "price": 349.91,
             "side": "buy"
         }
     ],
@@ -72,32 +47,26 @@
         {
             "ticker": "STX",
             "rank": 5,
-            "score": 4.32,
+            "score": 5.71,
             "action": "KEEP (Rank 5)"
         },
         {
             "ticker": "GLW",
-            "rank": 8,
-            "score": 3.8,
-            "action": "KEEP (Rank 8)"
-        },
-        {
-            "ticker": "TER",
             "rank": 7,
-            "score": 3.99,
+            "score": 3.66,
             "action": "KEEP (Rank 7)"
         },
         {
-            "ticker": "WBD",
-            "rank": 45,
-            "score": 2.14,
-            "action": "SELL (Rank 45 > 20)"
+            "ticker": "LRCX",
+            "rank": 20,
+            "score": 2.69,
+            "action": "KEEP (Rank 20)"
         },
         {
-            "ticker": "LRCX",
-            "rank": 13,
-            "score": 3.05,
-            "action": "KEEP (Rank 13)"
+            "ticker": "TER",
+            "rank": 10,
+            "score": 3.18,
+            "action": "KEEP (Rank 10)"
         },
         {
             "ticker": "SNDK",
@@ -107,39 +76,27 @@
         },
         {
             "ticker": "WDC",
-            "rank": 4,
-            "score": 5.99,
-            "action": "KEEP (Rank 4)"
-        },
-        {
-            "ticker": "NEM",
-            "rank": 38,
-            "score": 2.25,
-            "action": "SELL (Rank 38 > 20)"
-        },
-        {
-            "ticker": "CAH",
-            "rank": 26,
-            "score": 2.47,
-            "action": "SELL (Rank 26 > 20)"
-        },
-        {
-            "ticker": "JNJ",
-            "rank": 17,
-            "score": 2.9,
-            "action": "KEEP (Rank 17)"
-        },
-        {
-            "ticker": "CIEN",
             "rank": 2,
             "score": 6.0,
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "ASML",
-            "rank": 37,
-            "score": 2.28,
-            "action": "SELL (Rank 37 > 20)"
+            "ticker": "JNJ",
+            "rank": 53,
+            "score": 1.99,
+            "action": "SELL (Rank 53 > 20)"
+        },
+        {
+            "ticker": "CIEN",
+            "rank": 4,
+            "score": 5.81,
+            "action": "KEEP (Rank 4)"
+        },
+        {
+            "ticker": "FIX",
+            "rank": 8,
+            "score": 3.43,
+            "action": "KEEP (Rank 8)"
         },
         {
             "ticker": "LITE",
@@ -148,25 +105,42 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "FIX",
+            "ticker": "COHR",
+            "rank": 11,
+            "score": 3.16,
+            "action": "KEEP (Rank 11)"
+        },
+        {
+            "ticker": "MU",
             "rank": 6,
-            "score": 4.0,
+            "score": 4.17,
             "action": "KEEP (Rank 6)"
+        },
+        {
+            "ticker": "ALB",
+            "rank": 16,
+            "score": 2.76,
+            "action": "KEEP (Rank 16)"
+        },
+        {
+            "ticker": "CAT",
+            "rank": 12,
+            "score": 3.09,
+            "action": "KEEP (Rank 12)"
+        },
+        {
+            "ticker": "GEV",
+            "rank": 14,
+            "score": 3.0,
+            "action": "KEEP (Rank 14)"
         }
     ],
     "trades": {
         "sell": [
-            "WBD",
-            "NEM",
-            "CAH",
-            "ASML"
+            "JNJ"
         ],
         "buy": [
-            "MU",
-            "COHR",
-            "ALB",
-            "CAT",
-            "GEV"
+            "INTC"
         ]
     }
 }
