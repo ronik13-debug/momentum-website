@@ -1,14 +1,14 @@
 {
     "date_analyzed": "2026-05-01",
-    "decision": "PARTIAL REBALANCE",
-    "reason": "Detected 1 broken stocks (Rank > 20).",
+    "decision": "HOLD",
+    "reason": "Portfolio is healthy.",
     "exposure_pct": 100.0,
-    "current_avg_score": 4.04,
-    "ideal_avg_score": 4.17,
-    "improvement_potential": "3.0%",
+    "current_avg_score": 4.24,
+    "ideal_avg_score": 4.27,
+    "improvement_potential": "0.6%",
     "friction_cost_pct": "0.00%",
-    "total_friction": 0.57,
-    "commissions": 0.57,
+    "total_friction": 0.22,
+    "commissions": 0.22,
     "tax": 0,
     "currency": "USD",
     "trade_diagnostics": [
@@ -18,28 +18,8 @@
             "side": "sell"
         },
         {
-            "ticker": "JNJ",
-            "price": 229.85,
-            "side": "sell"
-        },
-        {
-            "ticker": "ALB",
-            "price": 196.7,
-            "side": "sell"
-        },
-        {
-            "ticker": "INTC",
-            "price": 94.48,
-            "side": "buy"
-        },
-        {
-            "ticker": "CMI",
-            "price": 671.01,
-            "side": "buy"
-        },
-        {
-            "ticker": "KEYS",
-            "price": 349.91,
+            "ticker": "APA",
+            "price": 40.73,
             "side": "buy"
         }
     ],
@@ -47,26 +27,26 @@
         {
             "ticker": "STX",
             "rank": 5,
-            "score": 5.71,
+            "score": 4.82,
             "action": "KEEP (Rank 5)"
         },
         {
             "ticker": "GLW",
-            "rank": 7,
-            "score": 3.66,
-            "action": "KEEP (Rank 7)"
+            "rank": 6,
+            "score": 3.82,
+            "action": "KEEP (Rank 6)"
         },
         {
             "ticker": "LRCX",
-            "rank": 20,
-            "score": 2.69,
-            "action": "KEEP (Rank 20)"
+            "rank": 15,
+            "score": 2.73,
+            "action": "KEEP (Rank 15)"
         },
         {
             "ticker": "TER",
-            "rank": 10,
-            "score": 3.18,
-            "action": "KEEP (Rank 10)"
+            "rank": 7,
+            "score": 3.75,
+            "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "SNDK",
@@ -81,22 +61,16 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "JNJ",
-            "rank": 53,
-            "score": 1.99,
-            "action": "SELL (Rank 53 > 20)"
+            "ticker": "FIX",
+            "rank": 9,
+            "score": 3.31,
+            "action": "KEEP (Rank 9)"
         },
         {
             "ticker": "CIEN",
-            "rank": 4,
-            "score": 5.81,
-            "action": "KEEP (Rank 4)"
-        },
-        {
-            "ticker": "FIX",
-            "rank": 8,
-            "score": 3.43,
-            "action": "KEEP (Rank 8)"
+            "rank": 2,
+            "score": 6.0,
+            "action": "KEEP (Rank 2)"
         },
         {
             "ticker": "LITE",
@@ -106,41 +80,31 @@
         },
         {
             "ticker": "COHR",
-            "rank": 11,
-            "score": 3.16,
-            "action": "KEEP (Rank 11)"
-        },
-        {
-            "ticker": "MU",
-            "rank": 6,
-            "score": 4.17,
-            "action": "KEEP (Rank 6)"
+            "rank": 10,
+            "score": 3.27,
+            "action": "KEEP (Rank 10)"
         },
         {
             "ticker": "ALB",
-            "rank": 16,
-            "score": 2.76,
-            "action": "KEEP (Rank 16)"
-        },
-        {
-            "ticker": "CAT",
             "rank": 12,
-            "score": 3.09,
+            "score": 2.93,
             "action": "KEEP (Rank 12)"
         },
         {
-            "ticker": "GEV",
-            "rank": 14,
-            "score": 3.0,
-            "action": "KEEP (Rank 14)"
+            "ticker": "CAT",
+            "rank": 13,
+            "score": 2.92,
+            "action": "KEEP (Rank 13)"
+        },
+        {
+            "ticker": "MU",
+            "rank": 8,
+            "score": 3.63,
+            "action": "KEEP (Rank 8)"
         }
     ],
     "trades": {
-        "sell": [
-            "JNJ"
-        ],
-        "buy": [
-            "INTC"
-        ]
+        "sell": [],
+        "buy": []
     }
 }
