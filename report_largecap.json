@@ -14,39 +14,39 @@
     "trade_diagnostics": [
         {
             "ticker": "LRCX",
-            "price": 257.86,
+            "price": 256.72,
             "side": "sell"
         },
         {
             "ticker": "APA",
-            "price": 40.73,
+            "price": 40.13,
             "side": "buy"
         }
     ],
     "detailed_status": [
         {
-            "ticker": "STX",
-            "rank": 5,
-            "score": 4.82,
-            "action": "KEEP (Rank 5)"
-        },
-        {
             "ticker": "GLW",
             "rank": 6,
-            "score": 3.82,
+            "score": 3.8,
             "action": "KEEP (Rank 6)"
         },
         {
-            "ticker": "LRCX",
-            "rank": 15,
-            "score": 2.73,
-            "action": "KEEP (Rank 15)"
+            "ticker": "STX",
+            "rank": 5,
+            "score": 4.74,
+            "action": "KEEP (Rank 5)"
         },
         {
             "ticker": "TER",
             "rank": 7,
-            "score": 3.75,
+            "score": 3.76,
             "action": "KEEP (Rank 7)"
+        },
+        {
+            "ticker": "LRCX",
+            "rank": 15,
+            "score": 2.74,
+            "action": "KEEP (Rank 15)"
         },
         {
             "ticker": "SNDK",
@@ -79,22 +79,22 @@
             "action": "KEEP (Rank 2)"
         },
         {
+            "ticker": "CAT",
+            "rank": 13,
+            "score": 2.92,
+            "action": "KEEP (Rank 13)"
+        },
+        {
             "ticker": "COHR",
             "rank": 10,
-            "score": 3.27,
+            "score": 3.28,
             "action": "KEEP (Rank 10)"
         },
         {
             "ticker": "ALB",
             "rank": 12,
-            "score": 2.93,
+            "score": 2.94,
             "action": "KEEP (Rank 12)"
-        },
-        {
-            "ticker": "CAT",
-            "rank": 13,
-            "score": 2.92,
-            "action": "KEEP (Rank 13)"
         },
         {
             "ticker": "MU",
