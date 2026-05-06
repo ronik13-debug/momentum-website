@@ -1,0 +1,90 @@
+{
+    "date_analyzed": "2026-04-16",
+    "decision": "PARTIAL REBALANCE",
+    "reason": "Detected 2 broken stocks (Rank > 7).",
+    "exposure_pct": 100.0,
+    "current_avg_score": 3.29,
+    "ideal_avg_score": 3.82,
+    "improvement_potential": "15.9%",
+    "friction_cost_pct": "0.03%",
+    "total_friction": 34.29,
+    "commissions": 34.29,
+    "tax": 0,
+    "currency": "ILS",
+    "trade_diagnostics": [
+        {
+            "ticker": "NXSN.TA",
+            "price": 288.3,
+            "side": "sell"
+        },
+        {
+            "ticker": "STRS.TA",
+            "price": 133.9,
+            "side": "sell"
+        },
+        {
+            "ticker": "MGOR.TA",
+            "price": 510.0,
+            "side": "buy"
+        },
+        {
+            "ticker": "TSEM.TA",
+            "price": 648.2,
+            "side": "buy"
+        }
+    ],
+    "detailed_status": [
+        {
+            "ticker": "ENLT.TA",
+            "rank": 5,
+            "score": 3.7,
+            "action": "KEEP (Rank 5)"
+        },
+        {
+            "ticker": "MSKE.TA",
+            "rank": 6,
+            "score": 2.94,
+            "action": "KEEP (Rank 6)"
+        },
+        {
+            "ticker": "OPCE.TA",
+            "rank": 4,
+            "score": 3.86,
+            "action": "KEEP (Rank 4)"
+        },
+        {
+            "ticker": "DORL.TA",
+            "rank": 1,
+            "score": 4.85,
+            "action": "KEEP (Rank 1)"
+        },
+        {
+            "ticker": "NXSN.TA",
+            "rank": 9,
+            "score": 2.58,
+            "action": "SELL (Rank 9 > 7)"
+        },
+        {
+            "ticker": "TASE.TA",
+            "rank": 7,
+            "score": 2.85,
+            "action": "KEEP (Rank 7)"
+        },
+        {
+            "ticker": "STRS.TA",
+            "rank": 11,
+            "score": 2.27,
+            "action": "SELL (Rank 11 > 7)"
+        }
+    ],
+    "trades": {
+        "sell": [
+            "NXSN.TA",
+            "STRS.TA"
+        ],
+        "buy": [
+            "MGOR.TA",
+            "TSEM.TA"
+        ]
+    }
+}
