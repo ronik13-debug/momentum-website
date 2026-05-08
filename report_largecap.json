@@ -14,22 +14,16 @@
     "trade_diagnostics": [
         {
             "ticker": "ALB",
-            "price": 192.61,
+            "price": 198.35,
             "side": "sell"
         },
         {
             "ticker": "KEYS",
-            "price": 366.68,
+            "price": 355.06,
             "side": "buy"
         }
     ],
     "detailed_status": [
-        {
-            "ticker": "GLW",
-            "rank": 7,
-            "score": 4.12,
-            "action": "KEEP (Rank 7)"
-        },
         {
             "ticker": "STX",
             "rank": 5,
@@ -37,16 +31,22 @@
             "action": "KEEP (Rank 5)"
         },
         {
-            "ticker": "TER",
-            "rank": 6,
-            "score": 4.35,
-            "action": "KEEP (Rank 6)"
+            "ticker": "GLW",
+            "rank": 7,
+            "score": 4.13,
+            "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "LRCX",
             "rank": 11,
             "score": 3.13,
             "action": "KEEP (Rank 11)"
+        },
+        {
+            "ticker": "TER",
+            "rank": 6,
+            "score": 4.35,
+            "action": "KEEP (Rank 6)"
         },
         {
             "ticker": "SNDK",
@@ -79,16 +79,16 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "MU",
-            "rank": 8,
-            "score": 3.89,
-            "action": "KEEP (Rank 8)"
+            "ticker": "COHR",
+            "rank": 9,
+            "score": 3.45,
+            "action": "KEEP (Rank 9)"
         },
         {
-            "ticker": "ALB",
-            "rank": 16,
-            "score": 2.66,
-            "action": "KEEP (Rank 16)"
+            "ticker": "MU",
+            "rank": 8,
+            "score": 3.9,
+            "action": "KEEP (Rank 8)"
         },
         {
             "ticker": "CAT",
@@ -97,10 +97,10 @@
             "action": "KEEP (Rank 13)"
         },
         {
-            "ticker": "COHR",
-            "rank": 9,
-            "score": 3.45,
-            "action": "KEEP (Rank 9)"
+            "ticker": "ALB",
+            "rank": 16,
+            "score": 2.66,
+            "action": "KEEP (Rank 16)"
         }
     ],
     "trades": {
