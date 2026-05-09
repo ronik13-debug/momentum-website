@@ -1,11 +1,11 @@
 {
-    "date_analyzed": "2026-05-07",
+    "date_analyzed": "2026-05-08",
     "decision": "HOLD",
     "reason": "Portfolio is healthy.",
     "exposure_pct": 100.0,
-    "current_avg_score": 4.38,
-    "ideal_avg_score": 4.4,
-    "improvement_potential": "0.5%",
+    "current_avg_score": 4.37,
+    "ideal_avg_score": 4.41,
+    "improvement_potential": "0.9%",
     "friction_cost_pct": "0.00%",
     "total_friction": 0.22,
     "commissions": 0.22,
@@ -14,45 +14,39 @@
     "trade_diagnostics": [
         {
             "ticker": "ALB",
-            "price": 198.35,
+            "price": 203.52,
             "side": "sell"
         },
         {
             "ticker": "KEYS",
-            "price": 355.06,
+            "price": 360.3,
             "side": "buy"
         }
     ],
     "detailed_status": [
         {
-            "ticker": "STX",
-            "rank": 5,
-            "score": 5.08,
-            "action": "KEEP (Rank 5)"
-        },
-        {
             "ticker": "GLW",
             "rank": 7,
-            "score": 4.13,
+            "score": 4.06,
             "action": "KEEP (Rank 7)"
         },
         {
-            "ticker": "LRCX",
-            "rank": 11,
-            "score": 3.13,
-            "action": "KEEP (Rank 11)"
+            "ticker": "STX",
+            "rank": 5,
+            "score": 4.98,
+            "action": "KEEP (Rank 5)"
         },
         {
             "ticker": "TER",
             "rank": 6,
-            "score": 4.35,
+            "score": 4.32,
             "action": "KEEP (Rank 6)"
         },
         {
-            "ticker": "SNDK",
-            "rank": 2,
-            "score": 6.0,
-            "action": "KEEP (Rank 2)"
+            "ticker": "LRCX",
+            "rank": 11,
+            "score": 3.17,
+            "action": "KEEP (Rank 11)"
         },
         {
             "ticker": "WDC",
@@ -61,10 +55,16 @@
             "action": "KEEP (Rank 2)"
         },
         {
+            "ticker": "SNDK",
+            "rank": 2,
+            "score": 6.0,
+            "action": "KEEP (Rank 2)"
+        },
+        {
             "ticker": "FIX",
-            "rank": 10,
-            "score": 3.37,
-            "action": "KEEP (Rank 10)"
+            "rank": 9,
+            "score": 3.55,
+            "action": "KEEP (Rank 9)"
         },
         {
             "ticker": "CIEN",
@@ -80,27 +80,27 @@
         },
         {
             "ticker": "COHR",
-            "rank": 9,
-            "score": 3.45,
-            "action": "KEEP (Rank 9)"
+            "rank": 10,
+            "score": 3.53,
+            "action": "KEEP (Rank 10)"
         },
         {
-            "ticker": "MU",
-            "rank": 8,
-            "score": 3.9,
-            "action": "KEEP (Rank 8)"
+            "ticker": "ALB",
+            "rank": 18,
+            "score": 2.48,
+            "action": "KEEP (Rank 18)"
         },
         {
             "ticker": "CAT",
             "rank": 13,
-            "score": 2.87,
+            "score": 2.94,
             "action": "KEEP (Rank 13)"
         },
         {
-            "ticker": "ALB",
-            "rank": 16,
-            "score": 2.66,
-            "action": "KEEP (Rank 16)"
+            "ticker": "MU",
+            "rank": 8,
+            "score": 3.78,
+            "action": "KEEP (Rank 8)"
         }
     ],
     "trades": {
