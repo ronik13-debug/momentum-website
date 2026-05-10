@@ -25,28 +25,28 @@
     ],
     "detailed_status": [
         {
-            "ticker": "GLW",
-            "rank": 7,
-            "score": 4.06,
-            "action": "KEEP (Rank 7)"
-        },
-        {
             "ticker": "STX",
             "rank": 5,
             "score": 4.98,
             "action": "KEEP (Rank 5)"
         },
         {
-            "ticker": "TER",
-            "rank": 6,
-            "score": 4.32,
-            "action": "KEEP (Rank 6)"
+            "ticker": "GLW",
+            "rank": 7,
+            "score": 4.06,
+            "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "LRCX",
             "rank": 11,
             "score": 3.17,
             "action": "KEEP (Rank 11)"
+        },
+        {
+            "ticker": "TER",
+            "rank": 6,
+            "score": 4.32,
+            "action": "KEEP (Rank 6)"
         },
         {
             "ticker": "WDC",
@@ -79,10 +79,10 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "COHR",
-            "rank": 10,
-            "score": 3.53,
-            "action": "KEEP (Rank 10)"
+            "ticker": "CAT",
+            "rank": 13,
+            "score": 2.94,
+            "action": "KEEP (Rank 13)"
         },
         {
             "ticker": "ALB",
@@ -91,16 +91,16 @@
             "action": "KEEP (Rank 18)"
         },
         {
-            "ticker": "CAT",
-            "rank": 13,
-            "score": 2.94,
-            "action": "KEEP (Rank 13)"
-        },
-        {
             "ticker": "MU",
             "rank": 8,
             "score": 3.78,
             "action": "KEEP (Rank 8)"
+        },
+        {
+            "ticker": "COHR",
+            "rank": 10,
+            "score": 3.53,
+            "action": "KEEP (Rank 10)"
         }
     ],
     "trades": {
