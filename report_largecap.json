@@ -3,7 +3,7 @@
     "decision": "HOLD",
     "reason": "Portfolio is healthy.",
     "exposure_pct": 100.0,
-    "current_avg_score": 4.48,
+    "current_avg_score": 4.49,
     "ideal_avg_score": 4.5,
     "improvement_potential": "0.3%",
     "friction_cost_pct": "0.00%",
@@ -27,32 +27,26 @@
         {
             "ticker": "GLW",
             "rank": 7,
-            "score": 3.99,
+            "score": 4.01,
             "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "STX",
             "rank": 5,
-            "score": 5.3,
+            "score": 5.29,
             "action": "KEEP (Rank 5)"
-        },
-        {
-            "ticker": "TER",
-            "rank": 6,
-            "score": 4.33,
-            "action": "KEEP (Rank 6)"
         },
         {
             "ticker": "LRCX",
             "rank": 12,
-            "score": 3.15,
+            "score": 3.16,
             "action": "KEEP (Rank 12)"
         },
         {
-            "ticker": "WDC",
-            "rank": 2,
-            "score": 6.0,
-            "action": "KEEP (Rank 2)"
+            "ticker": "TER",
+            "rank": 6,
+            "score": 4.35,
+            "action": "KEEP (Rank 6)"
         },
         {
             "ticker": "SNDK",
@@ -61,9 +55,15 @@
             "action": "KEEP (Rank 2)"
         },
         {
+            "ticker": "WDC",
+            "rank": 2,
+            "score": 6.0,
+            "action": "KEEP (Rank 2)"
+        },
+        {
             "ticker": "FIX",
             "rank": 10,
-            "score": 3.53,
+            "score": 3.54,
             "action": "KEEP (Rank 10)"
         },
         {
@@ -79,28 +79,28 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "MU",
-            "rank": 8,
-            "score": 3.87,
-            "action": "KEEP (Rank 8)"
-        },
-        {
-            "ticker": "CAT",
-            "rank": 14,
-            "score": 2.91,
-            "action": "KEEP (Rank 14)"
+            "ticker": "ALB",
+            "rank": 11,
+            "score": 3.45,
+            "action": "KEEP (Rank 11)"
         },
         {
             "ticker": "COHR",
             "rank": 9,
-            "score": 3.76,
+            "score": 3.77,
             "action": "KEEP (Rank 9)"
         },
         {
-            "ticker": "ALB",
-            "rank": 11,
-            "score": 3.44,
-            "action": "KEEP (Rank 11)"
+            "ticker": "CAT",
+            "rank": 14,
+            "score": 2.92,
+            "action": "KEEP (Rank 14)"
+        },
+        {
+            "ticker": "MU",
+            "rank": 8,
+            "score": 3.88,
+            "action": "KEEP (Rank 8)"
         }
     ],
     "trades": {
