@@ -1,37 +1,37 @@
 [
   {
     "name": "Strategy",
-    "sharpe": 0.726,
-    "cagr": 19.8,
-    "max_dd": -26.27,
+    "sharpe": 0.742,
+    "cagr": 20.32,
+    "max_dd": -26.29,
     "sharpe_delta": 0.0
   },
   {
     "name": "VT (Global Stock)",
-    "sharpe": 0.53,
-    "cagr": 12.45,
+    "sharpe": 0.532,
+    "cagr": 12.49,
     "max_dd": -34.23,
-    "sharpe_delta": 0.196
+    "sharpe_delta": 0.21
   },
   {
     "name": "VOO (S&P 500)",
-    "sharpe": 0.653,
-    "cagr": 15.41,
+    "sharpe": 0.654,
+    "cagr": 15.43,
     "max_dd": -33.96,
-    "sharpe_delta": 0.073
+    "sharpe_delta": 0.088
   },
   {
     "name": "SPMO (S&P 500 Mom.)",
-    "sharpe": 0.812,
-    "cagr": 20.65,
+    "sharpe": 0.817,
+    "cagr": 20.77,
     "max_dd": -30.95,
-    "sharpe_delta": -0.086
+    "sharpe_delta": -0.075
   },
   {
     "name": "QQQ (Nasdaq 100)",
-    "sharpe": 0.783,
-    "cagr": 21.26,
+    "sharpe": 0.784,
+    "cagr": 21.27,
     "max_dd": -35.23,
-    "sharpe_delta": -0.057
+    "sharpe_delta": -0.042
   }
 ]
