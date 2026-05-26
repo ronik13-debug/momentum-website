@@ -89,16 +89,16 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "COHR",
-            "rank": 9,
-            "score": 3.52,
-            "action": "KEEP (Rank 9)"
-        },
-        {
             "ticker": "ALB",
             "rank": 13,
             "score": 2.99,
             "action": "KEEP (Rank 13)"
+        },
+        {
+            "ticker": "COHR",
+            "rank": 9,
+            "score": 3.52,
+            "action": "KEEP (Rank 9)"
         },
         {
             "ticker": "MU",
