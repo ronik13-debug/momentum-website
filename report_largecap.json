@@ -1,45 +1,35 @@
 {
-    "date_analyzed": "2026-05-27",
-    "decision": "PARTIAL REBALANCE",
-    "reason": "Detected 1 broken stocks (Rank > 26).",
+    "date_analyzed": "2026-05-29",
+    "decision": "HOLD",
+    "reason": "Portfolio is healthy.",
     "exposure_pct": 100.0,
-    "current_avg_score": 4.23,
-    "ideal_avg_score": 4.34,
-    "improvement_potential": "2.7%",
+    "current_avg_score": 4.33,
+    "ideal_avg_score": 4.4,
+    "improvement_potential": "1.8%",
     "friction_cost_pct": "0.00%",
-    "total_friction": 0.65,
-    "commissions": 0.65,
+    "total_friction": 0.44,
+    "commissions": 0.44,
     "tax": 0,
     "currency": "USD",
     "trade_diagnostics": [
         {
             "ticker": "LRCX",
-            "price": 318.93,
+            "price": 318.18,
             "side": "sell"
         },
         {
-            "ticker": "JNJ",
-            "price": 231.29,
+            "ticker": "ALB",
+            "price": 176.42,
             "side": "sell"
-        },
-        {
-            "ticker": "CAT",
-            "price": 909.93,
-            "side": "sell"
-        },
-        {
-            "ticker": "GEV",
-            "price": 1031.89,
-            "side": "buy"
         },
         {
             "ticker": "INTC",
-            "price": 121.77,
+            "price": 114.68,
             "side": "buy"
         },
         {
-            "ticker": "CMI",
-            "price": 667.85,
+            "ticker": "GEV",
+            "price": 968.32,
             "side": "buy"
         }
     ],
@@ -47,32 +37,26 @@
         {
             "ticker": "STX",
             "rank": 5,
-            "score": 5.06,
+            "score": 5.65,
             "action": "KEEP (Rank 5)"
         },
         {
             "ticker": "GLW",
-            "rank": 8,
-            "score": 3.67,
-            "action": "KEEP (Rank 8)"
-        },
-        {
-            "ticker": "LRCX",
-            "rank": 17,
-            "score": 2.8,
-            "action": "KEEP (Rank 17)"
-        },
-        {
-            "ticker": "TER",
             "rank": 6,
-            "score": 4.06,
+            "score": 3.89,
             "action": "KEEP (Rank 6)"
         },
         {
-            "ticker": "SNDK",
-            "rank": 2,
-            "score": 6.0,
-            "action": "KEEP (Rank 2)"
+            "ticker": "TER",
+            "rank": 11,
+            "score": 3.27,
+            "action": "KEEP (Rank 11)"
+        },
+        {
+            "ticker": "LRCX",
+            "rank": 21,
+            "score": 2.64,
+            "action": "KEEP (Rank 21)"
         },
         {
             "ticker": "WDC",
@@ -81,21 +65,21 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "JNJ",
-            "rank": 38,
-            "score": 2.2,
-            "action": "SELL (Rank 38 > 26)"
+            "ticker": "SNDK",
+            "rank": 2,
+            "score": 6.0,
+            "action": "KEEP (Rank 2)"
         },
         {
             "ticker": "FIX",
             "rank": 9,
-            "score": 3.31,
+            "score": 3.49,
             "action": "KEEP (Rank 9)"
         },
         {
             "ticker": "CIEN",
             "rank": 4,
-            "score": 5.55,
+            "score": 5.89,
             "action": "KEEP (Rank 4)"
         },
         {
@@ -105,30 +89,32 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "MU",
-            "rank": 7,
-            "score": 4.05,
-            "action": "KEEP (Rank 7)"
+            "ticker": "CAT",
+            "rank": 10,
+            "score": 3.3,
+            "action": "KEEP (Rank 10)"
         },
         {
-            "ticker": "CAT",
+            "ticker": "ALB",
             "rank": 14,
-            "score": 2.97,
+            "score": 3.13,
             "action": "KEEP (Rank 14)"
         },
         {
+            "ticker": "MU",
+            "rank": 7,
+            "score": 3.78,
+            "action": "KEEP (Rank 7)"
+        },
+        {
             "ticker": "COHR",
-            "rank": 11,
-            "score": 3.27,
-            "action": "KEEP (Rank 11)"
+            "rank": 13,
+            "score": 3.2,
+            "action": "KEEP (Rank 13)"
         }
     ],
     "trades": {
-        "sell": [
-            "JNJ"
-        ],
-        "buy": [
-            "GEV"
-        ]
+        "sell": [],
+        "buy": []
     }
 }
