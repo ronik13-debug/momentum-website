@@ -47,25 +47,25 @@
             "action": "KEEP (Rank 6)"
         },
         {
-            "ticker": "TER",
-            "rank": 11,
-            "score": 3.27,
-            "action": "KEEP (Rank 11)"
-        },
-        {
             "ticker": "LRCX",
             "rank": 21,
             "score": 2.64,
             "action": "KEEP (Rank 21)"
         },
         {
-            "ticker": "WDC",
+            "ticker": "TER",
+            "rank": 11,
+            "score": 3.27,
+            "action": "KEEP (Rank 11)"
+        },
+        {
+            "ticker": "SNDK",
             "rank": 2,
             "score": 6.0,
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "SNDK",
+            "ticker": "WDC",
             "rank": 2,
             "score": 6.0,
             "action": "KEEP (Rank 2)"
@@ -95,16 +95,16 @@
             "action": "KEEP (Rank 10)"
         },
         {
-            "ticker": "ALB",
-            "rank": 14,
-            "score": 3.13,
-            "action": "KEEP (Rank 14)"
-        },
-        {
             "ticker": "MU",
             "rank": 7,
             "score": 3.78,
             "action": "KEEP (Rank 7)"
+        },
+        {
+            "ticker": "ALB",
+            "rank": 14,
+            "score": 3.13,
+            "action": "KEEP (Rank 14)"
         },
         {
             "ticker": "COHR",
