@@ -1,11 +1,11 @@
 {
     "date_analyzed": "2026-05-29",
-    "decision": "HOLD",
-    "reason": "Portfolio is healthy.",
+    "decision": "PARTIAL REBALANCE",
+    "reason": "Detected 1 broken stocks (Rank > 26).",
     "exposure_pct": 100.0,
-    "current_avg_score": 4.33,
-    "ideal_avg_score": 4.4,
-    "improvement_potential": "1.8%",
+    "current_avg_score": 4.26,
+    "ideal_avg_score": 4.41,
+    "improvement_potential": "3.4%",
     "friction_cost_pct": "0.00%",
     "total_friction": 0.44,
     "commissions": 0.44,
@@ -18,8 +18,8 @@
             "side": "sell"
         },
         {
-            "ticker": "ALB",
-            "price": 176.42,
+            "ticker": "JNJ",
+            "price": 225.33,
             "side": "sell"
         },
         {
@@ -35,28 +35,28 @@
     ],
     "detailed_status": [
         {
-            "ticker": "STX",
-            "rank": 5,
-            "score": 5.65,
-            "action": "KEEP (Rank 5)"
-        },
-        {
             "ticker": "GLW",
             "rank": 6,
             "score": 3.89,
             "action": "KEEP (Rank 6)"
         },
         {
-            "ticker": "LRCX",
-            "rank": 21,
-            "score": 2.64,
-            "action": "KEEP (Rank 21)"
+            "ticker": "STX",
+            "rank": 5,
+            "score": 5.65,
+            "action": "KEEP (Rank 5)"
         },
         {
             "ticker": "TER",
             "rank": 11,
-            "score": 3.27,
+            "score": 3.28,
             "action": "KEEP (Rank 11)"
+        },
+        {
+            "ticker": "LRCX",
+            "rank": 21,
+            "score": 2.64,
+            "action": "KEEP (Rank 21)"
         },
         {
             "ticker": "SNDK",
@@ -77,6 +77,12 @@
             "action": "KEEP (Rank 9)"
         },
         {
+            "ticker": "JNJ",
+            "rank": 38,
+            "score": 2.24,
+            "action": "SELL (Rank 38 > 26)"
+        },
+        {
             "ticker": "CIEN",
             "rank": 4,
             "score": 5.89,
@@ -89,32 +95,30 @@
             "action": "KEEP (Rank 2)"
         },
         {
+            "ticker": "MU",
+            "rank": 7,
+            "score": 3.79,
+            "action": "KEEP (Rank 7)"
+        },
+        {
             "ticker": "CAT",
             "rank": 10,
             "score": 3.3,
             "action": "KEEP (Rank 10)"
         },
         {
-            "ticker": "MU",
-            "rank": 7,
-            "score": 3.78,
-            "action": "KEEP (Rank 7)"
-        },
-        {
-            "ticker": "ALB",
-            "rank": 14,
-            "score": 3.13,
-            "action": "KEEP (Rank 14)"
-        },
-        {
             "ticker": "COHR",
             "rank": 13,
-            "score": 3.2,
+            "score": 3.21,
             "action": "KEEP (Rank 13)"
         }
     ],
     "trades": {
-        "sell": [],
-        "buy": []
+        "sell": [
+            "JNJ"
+        ],
+        "buy": [
+            "INTC"
+        ]
     }
 }
