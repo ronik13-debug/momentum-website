@@ -35,28 +35,28 @@
     ],
     "detailed_status": [
         {
-            "ticker": "GLW",
-            "rank": 6,
-            "score": 3.89,
-            "action": "KEEP (Rank 6)"
-        },
-        {
             "ticker": "STX",
             "rank": 5,
             "score": 5.65,
             "action": "KEEP (Rank 5)"
         },
         {
-            "ticker": "TER",
-            "rank": 11,
-            "score": 3.28,
-            "action": "KEEP (Rank 11)"
+            "ticker": "GLW",
+            "rank": 6,
+            "score": 3.89,
+            "action": "KEEP (Rank 6)"
         },
         {
             "ticker": "LRCX",
             "rank": 21,
-            "score": 2.64,
+            "score": 2.65,
             "action": "KEEP (Rank 21)"
+        },
+        {
+            "ticker": "TER",
+            "rank": 11,
+            "score": 3.28,
+            "action": "KEEP (Rank 11)"
         },
         {
             "ticker": "SNDK",
@@ -85,7 +85,7 @@
         {
             "ticker": "CIEN",
             "rank": 4,
-            "score": 5.89,
+            "score": 5.9,
             "action": "KEEP (Rank 4)"
         },
         {
@@ -95,16 +95,16 @@
             "action": "KEEP (Rank 2)"
         },
         {
-            "ticker": "MU",
-            "rank": 7,
-            "score": 3.79,
-            "action": "KEEP (Rank 7)"
-        },
-        {
             "ticker": "CAT",
             "rank": 10,
             "score": 3.3,
             "action": "KEEP (Rank 10)"
+        },
+        {
+            "ticker": "MU",
+            "rank": 7,
+            "score": 3.79,
+            "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "COHR",
