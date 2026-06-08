@@ -89,6 +89,12 @@
             "action": "KEEP (Rank 2)"
         },
         {
+            "ticker": "COHR",
+            "rank": 15,
+            "score": 2.95,
+            "action": "KEEP (Rank 15)"
+        },
+        {
             "ticker": "MU",
             "rank": 6,
             "score": 4.17,
@@ -99,12 +105,6 @@
             "rank": 11,
             "score": 3.17,
             "action": "KEEP (Rank 11)"
-        },
-        {
-            "ticker": "COHR",
-            "rank": 15,
-            "score": 2.95,
-            "action": "KEEP (Rank 15)"
         },
         {
             "ticker": "INTC",
