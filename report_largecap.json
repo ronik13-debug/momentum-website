@@ -35,28 +35,28 @@
     ],
     "detailed_status": [
         {
-            "ticker": "STX",
-            "rank": 2,
-            "score": 6.0,
-            "action": "KEEP (Rank 2)"
-        },
-        {
             "ticker": "GLW",
             "rank": 7,
             "score": 3.76,
             "action": "KEEP (Rank 7)"
         },
         {
-            "ticker": "TER",
-            "rank": 10,
-            "score": 3.21,
-            "action": "KEEP (Rank 10)"
+            "ticker": "STX",
+            "rank": 2,
+            "score": 6.0,
+            "action": "KEEP (Rank 2)"
         },
         {
             "ticker": "LRCX",
             "rank": 21,
             "score": 2.67,
             "action": "KEEP (Rank 21)"
+        },
+        {
+            "ticker": "TER",
+            "rank": 10,
+            "score": 3.21,
+            "action": "KEEP (Rank 10)"
         },
         {
             "ticker": "SNDK",
@@ -95,16 +95,16 @@
             "action": "KEEP (Rank 15)"
         },
         {
-            "ticker": "MU",
-            "rank": 6,
-            "score": 4.17,
-            "action": "KEEP (Rank 6)"
-        },
-        {
             "ticker": "CAT",
             "rank": 11,
             "score": 3.17,
             "action": "KEEP (Rank 11)"
+        },
+        {
+            "ticker": "MU",
+            "rank": 6,
+            "score": 4.17,
+            "action": "KEEP (Rank 6)"
         },
         {
             "ticker": "INTC",
