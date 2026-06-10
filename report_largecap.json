@@ -35,16 +35,16 @@
     ],
     "detailed_status": [
         {
-            "ticker": "GLW",
-            "rank": 7,
-            "score": 3.76,
-            "action": "KEEP (Rank 7)"
-        },
-        {
             "ticker": "STX",
             "rank": 2,
             "score": 6.0,
             "action": "KEEP (Rank 2)"
+        },
+        {
+            "ticker": "GLW",
+            "rank": 7,
+            "score": 3.76,
+            "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "LRCX",
