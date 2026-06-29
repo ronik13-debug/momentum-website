@@ -1,25 +1,45 @@
 {
-    "date_analyzed": "2026-06-12",
-    "decision": "HOLD",
-    "reason": "Portfolio is healthy.",
+    "date_analyzed": "2026-06-26",
+    "decision": "PARTIAL REBALANCE",
+    "reason": "Detected 1 broken stocks (Rank > 26).",
     "exposure_pct": 100.0,
-    "current_avg_score": 4.53,
-    "ideal_avg_score": 4.59,
-    "improvement_potential": "1.2%",
+    "current_avg_score": 4.08,
+    "ideal_avg_score": 4.18,
+    "improvement_potential": "2.3%",
     "friction_cost_pct": "0.00%",
-    "total_friction": 0.26,
-    "commissions": 0.26,
+    "total_friction": 0.57,
+    "commissions": 0.57,
     "tax": 0,
     "currency": "USD",
     "trade_diagnostics": [
         {
             "ticker": "LRCX",
-            "price": 366.81,
+            "price": 379.09,
+            "side": "sell"
+        },
+        {
+            "ticker": "ROST",
+            "price": 213.26,
+            "side": "sell"
+        },
+        {
+            "ticker": "ALB",
+            "price": 133.7,
             "side": "sell"
         },
         {
             "ticker": "INTC",
-            "price": 124.57,
+            "price": 128.32,
+            "side": "buy"
+        },
+        {
+            "ticker": "CMI",
+            "price": 685.87,
+            "side": "buy"
+        },
+        {
+            "ticker": "KEYS",
+            "price": 328.66,
             "side": "buy"
         }
     ],
@@ -49,16 +69,16 @@
             "action": "KEEP (Rank 2)"
         },
         {
+            "ticker": "MU",
+            "rank": 6,
+            "score": 3.94,
+            "action": "KEEP (Rank 6)"
+        },
+        {
             "ticker": "LRCX",
             "rank": 19,
             "score": 2.73,
             "action": "KEEP (Rank 19)"
-        },
-        {
-            "ticker": "CIEN",
-            "rank": 4,
-            "score": 5.94,
-            "action": "KEEP (Rank 4)"
         },
         {
             "ticker": "TER",
@@ -67,32 +87,60 @@
             "action": "KEEP (Rank 11)"
         },
         {
-            "ticker": "LITE",
-            "rank": 2,
-            "score": 6.0,
-            "action": "KEEP (Rank 2)"
-        },
-        {
-            "ticker": "MU",
-            "rank": 6,
-            "score": 3.94,
-            "action": "KEEP (Rank 6)"
-        },
-        {
             "ticker": "FIX",
             "rank": 8,
             "score": 3.47,
             "action": "KEEP (Rank 8)"
         },
         {
+            "ticker": "CIEN",
+            "rank": 4,
+            "score": 5.94,
+            "action": "KEEP (Rank 4)"
+        },
+        {
             "ticker": "COHR",
             "rank": 10,
             "score": 3.27,
             "action": "KEEP (Rank 10)"
+        },
+        {
+            "ticker": "ROST",
+            "rank": 28,
+            "score": 2.37,
+            "action": "SELL (Rank 28 > 26)"
+        },
+        {
+            "ticker": "ALB",
+            "rank": 16,
+            "score": 2.8,
+            "action": "KEEP (Rank 16)"
+        },
+        {
+            "ticker": "GEV",
+            "rank": 14,
+            "score": 3.02,
+            "action": "KEEP (Rank 14)"
+        },
+        {
+            "ticker": "CAT",
+            "rank": 12,
+            "score": 3.17,
+            "action": "KEEP (Rank 12)"
+        },
+        {
+            "ticker": "LITE",
+            "rank": 2,
+            "score": 6.0,
+            "action": "KEEP (Rank 2)"
         }
     ],
     "trades": {
-        "sell": [],
-        "buy": []
+        "sell": [
+            "ROST"
+        ],
+        "buy": [
+            "INTC"
+        ]
     }
 }
