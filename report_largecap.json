@@ -1,27 +1,17 @@
 {
     "date_analyzed": "2025-12-31",
     "decision": "PARTIAL REBALANCE",
-    "reason": "Missing 1 stocks to reach Top N target (15). Filling gaps.",
+    "reason": "Missing 2 stocks to reach Top N target (15). Filling gaps.",
     "exposure_pct": 100.0,
-    "current_avg_score": 3.77,
-    "ideal_avg_score": 4.06,
-    "improvement_potential": "7.6%",
+    "current_avg_score": 3.88,
+    "ideal_avg_score": 4.09,
+    "improvement_potential": "5.4%",
     "friction_cost_pct": "0.00%",
-    "total_friction": 0.38,
-    "commissions": 0.38,
+    "total_friction": 0.0,
+    "commissions": 0.0,
     "tax": 0,
     "currency": "USD",
     "trade_diagnostics": [
-        {
-            "ticker": "AVGO",
-            "price": 344.83,
-            "side": "sell"
-        },
-        {
-            "ticker": "TER",
-            "price": 193.41,
-            "side": "sell"
-        },
         {
             "ticker": "LITE",
             "price": 368.59,
@@ -31,67 +21,32 @@
             "ticker": "CIEN",
             "price": 233.87,
             "side": "buy"
-        },
-        {
-            "ticker": "HOOD",
-            "price": 113.1,
-            "side": "buy"
         }
     ],
     "detailed_status": [
         {
             "ticker": "APH",
             "rank": 9,
-            "score": 3.43,
+            "score": 3.46,
             "action": "KEEP (Rank 9)"
         },
         {
-            "ticker": "WDC",
-            "rank": 3,
-            "score": 5.15,
-            "action": "KEEP (Rank 3)"
+            "ticker": "HOOD",
+            "rank": 11,
+            "score": 3.38,
+            "action": "KEEP (Rank 11)"
         },
         {
             "ticker": "STX",
             "rank": 5,
-            "score": 4.58,
+            "score": 4.62,
             "action": "KEEP (Rank 5)"
-        },
-        {
-            "ticker": "AVGO",
-            "rank": 18,
-            "score": 3.0,
-            "action": "KEEP (Rank 18)"
-        },
-        {
-            "ticker": "ECHO",
-            "rank": 6,
-            "score": 3.77,
-            "action": "KEEP (Rank 6)"
         },
         {
             "ticker": "GLW",
             "rank": 10,
-            "score": 3.37,
+            "score": 3.4,
             "action": "KEEP (Rank 10)"
-        },
-        {
-            "ticker": "CAH",
-            "rank": 14,
-            "score": 3.2,
-            "action": "KEEP (Rank 14)"
-        },
-        {
-            "ticker": "MU",
-            "rank": 8,
-            "score": 3.67,
-            "action": "KEEP (Rank 8)"
-        },
-        {
-            "ticker": "GOOGL",
-            "rank": 7,
-            "score": 3.74,
-            "action": "KEEP (Rank 7)"
         },
         {
             "ticker": "SNDK",
@@ -100,34 +55,59 @@
             "action": "KEEP (Rank 1)"
         },
         {
-            "ticker": "TER",
-            "rank": 16,
-            "score": 3.13,
-            "action": "KEEP (Rank 16)"
+            "ticker": "WDC",
+            "rank": 3,
+            "score": 5.19,
+            "action": "KEEP (Rank 3)"
         },
         {
-            "ticker": "WBD",
-            "rank": 15,
-            "score": 3.14,
-            "action": "KEEP (Rank 15)"
+            "ticker": "ECHO",
+            "rank": 6,
+            "score": 3.8,
+            "action": "KEEP (Rank 6)"
         },
         {
-            "ticker": "NEM",
-            "rank": 13,
-            "score": 3.27,
-            "action": "KEEP (Rank 13)"
+            "ticker": "GOOGL",
+            "rank": 7,
+            "score": 3.77,
+            "action": "KEEP (Rank 7)"
+        },
+        {
+            "ticker": "MU",
+            "rank": 8,
+            "score": 3.7,
+            "action": "KEEP (Rank 8)"
         },
         {
             "ticker": "LRCX",
             "rank": 12,
-            "score": 3.34,
+            "score": 3.37,
             "action": "KEEP (Rank 12)"
+        },
+        {
+            "ticker": "NEM",
+            "rank": 13,
+            "score": 3.3,
+            "action": "KEEP (Rank 13)"
+        },
+        {
+            "ticker": "CAH",
+            "rank": 14,
+            "score": 3.23,
+            "action": "KEEP (Rank 14)"
+        },
+        {
+            "ticker": "WBD",
+            "rank": 15,
+            "score": 3.17,
+            "action": "KEEP (Rank 15)"
         }
     ],
     "trades": {
         "sell": [],
         "buy": [
-            "LITE"
+            "LITE",
+            "CIEN"
         ]
     }
 }
